@@ -1,6 +1,6 @@
 import React from "react";
 import Dashboard from "./Dashboard";
-import LeftNav from "../components/LeftNav";
+import LeftNav from "../components/cards/DashBoardConponents/LeftNav";
 
 interface MainProps {}
 
