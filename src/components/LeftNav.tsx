@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { AiOutlineBank } from "react-icons/ai";
 import { GiProgression } from "react-icons/gi";
 import { GoSettings } from "react-icons/go";
 import NavItem from "./NavItem";
 import Avatar from "./Avatar";
+import { logout } from "../utilities/firebaseAuth";
+import useUser from "../hooks/useUser";
 
 interface LeftNavProps {}
 
@@ -14,10 +17,14 @@ const navItems = [
 ];
 
 const LeftNav: React.FC<LeftNavProps> = ({}) => {
+  const { user } = useUser();
+
   return (
     <div className="flex flex-col justify-between h-screen flex-[0.2] bg-black text-white">
       <div className="p-4">
-        <p className="text-lg font-bold mb-4">BitCamp Saving</p>
+        <Link to="/">
+          <p className="text-lg font-bold mb-4">BitCamp Saving</p>
+        </Link>
 
         {navItems.map((item) => (
           <NavItem Icon={item.Icon} title={item.title} />
@@ -25,15 +32,16 @@ const LeftNav: React.FC<LeftNavProps> = ({}) => {
       </div>
 
       <div className="flex items-center gap-4 border-t-[1px] border-t-gray-800 p-4">
-        <Avatar
-          imageUrl={
-            "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT7J9KMrDp7vkU9Zl5h4J9VyIvxVh-DsaQc-x-Bj5SST2yMaFeW2B7ided9BG5uX_FVTMg&usqp=CAU"
-          }
-        />
+        <Link to="/profile">
+          <Avatar imageUrl={user?.photoURL || ""} />
+        </Link>
 
         <div>
-          <p className="text-lg text-gray-300 font-extrabold">Mike Jack</p>
-          <button className="text-sm text-yellow-400">Sign Out</button>
+          <p className="text-lg text-gray-300 font-extrabold">{user?.displayName}</p>
+
+          <button onClick={logout} className="text-sm text-yellow-400">
+            Sign Out
+          </button>
         </div>
       </div>
     </div>
