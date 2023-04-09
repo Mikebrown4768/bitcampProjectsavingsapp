@@ -1,6 +1,6 @@
 import React from "react";
-import BankCard from "../components/cards/DashBoardConponents/BankCard";
-    import IncomeCard from "../components/cards/DashBoardConponents/IncomeCard";
+import BankCard from "../components/cards/BankCard";
+import IncomeCard from "../components/cards/IncomeCard";
 
 interface DashboardProps {}
 

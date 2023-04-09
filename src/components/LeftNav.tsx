@@ -3,7 +3,7 @@ import { AiOutlineBank } from "react-icons/ai";
 import { GiProgression } from "react-icons/gi";
 import { GoSettings } from "react-icons/go";
 import NavItem from "./NavItem";
-import Avatar from "../../Avatar";
+import Avatar from "./Avatar";
 
 interface LeftNavProps {}
 
